@@ -47,6 +47,11 @@ PARSER.add_argument(
     action="store_true",
     help="Resize images.",
 )
+PARSER.add_argument(
+    "--png_to_jpg_compress",
+    action="store_true",
+    help="convert png images to jpg to reduce PDF size. verify final pdf for broken links(?)",
+)
 
 PARSER.add_argument(
     "--im_size",
@@ -87,6 +92,23 @@ PARSER.add_argument(
     "--keep_bib",
     action="store_true",
     help="Avoid deleting the *.bib files.",
+)
+PARSER.add_argument(
+    "--flattening",
+    action="store_true",
+    help="Compress all tex files to single file.",
+)
+PARSER.add_argument(
+    "--use_tex_log_for_figs",
+    default=None,
+    type=str,
+    help="use the 'output.log' file for full references of the figures (if exists). used for implicit paths, e.g. '\Foldername{sample01}'. Default: None",
+)
+PARSER.add_argument(
+    "--main_tex",
+    default=None,
+    type=str,
+    help="Main tex name in root to use and find references. e.g. main.tex",
 )
 
 PARSER.add_argument(
